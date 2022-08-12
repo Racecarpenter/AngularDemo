@@ -25,8 +25,13 @@ export class CartService {
     return this.items;
   }
 
+  removeItem(item: Product) {
+    const index: number = this.items.indexOf(item);
+    this.items.splice(index, 1);
+  }
+
   getShippingPrices() {
-    return this.http.get<{type: string, price: number}[]>
-    ('/assets/shipping.json');
+    return this.http.get<{ type: string, price: number }[]>
+      ('/assets/shipping.json');
   }
 }

@@ -1,13 +1,18 @@
 <h3>Cart</h3>
 
+<div class="cart-item" *ngIf="items.length === 0">
+  No items to show! Buy something!
+</div>
+<div class="cart-item" *ngFor="let item of items;">
+  <span class="cart-name">{{ item.name }}</span>
+  <span class="spacer"></span>
+  <span class="cart-price">{{ item.price | currency }}</span>
+  <span class="spacer"></span>
+  <a type="text" class="remove" (click)="removeItem(item)">Remove</a>
+</div>
 <p>
   <a routerLink="/shipping">Shipping Prices </a>
 </p>
-
-<div class="cart-item" *ngFor="let item of items">
-  <span>{{ item.name }}</span>
-  <span>{{ item.price | currency }}</span>
-</div>
 
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
   <div>
