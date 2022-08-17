@@ -34,7 +34,7 @@ export class CartComponent {
 
 
   onSubmit(): void {
-    //Process Checkout data here
+    //Process Checkout data
     if (this.items.length === 0) {
       return window.alert('No items in cart!')
     }
